@@ -1,0 +1,121 @@
+import React, {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+function GitHubUser({login}) {
+  const [data, setData] = useState(null);
+  useEffect (() => {
+    fetch(`https://api.github.com/users/${login}`)
+    .then(res => res.json())
+    .then(setData)
+    .catch(console.error);
+  }, []);
+
+ if(data) {
+   return (
+     <div>
+      <h1>{data.login}</h1>
+      <img src={data.avatar_url} width={100} />
+     </div>
+   )
+ }
+ return null;
+}
+
+function App() {
+  return <GitHubUser login="claydesk" />
+}
+
+ReactDOM.render( 
+    <App />,
+    document.getElementById('root')
+);
+
+
+
+--------------------------------------------------
+
+HOW TO CREATE A PDF DOCUMENT IN REACT
+
+Run this command first:
+
+npm install @react-pdf/renderer --save
+
+
+--------------------------------------------------
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { PDFViewer } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+
+// Create styles
+const styles = StyleSheet.create({
+  page: {
+    flexDirection: 'row',
+    backgroundColor: '#E4E4E4'
+  },
+  section: {
+    margin: 10,
+    padding: 10,
+    flexGrow: 1
+  }
+});
+
+// Create Document Component
+const MyDocument = () => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.section}>
+        <Text>Section #1</Text>
+      </View>
+      <View style={styles.section}>
+        <Text>Section #2</Text>
+      </View>
+    </Page>
+  </Document>
+);
+
+const App = () => (
+  <PDFViewer>
+    <MyDocument />
+  </PDFViewer>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+-------------------
+
+Hope this helps.
+Thank you!
+Team ClayDesk
+Syed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
