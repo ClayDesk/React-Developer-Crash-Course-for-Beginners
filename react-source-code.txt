@@ -1,3 +1,5 @@
+SOURCE CODE FOR THE React Developer Crash Course for Beginners
+
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -31,20 +33,15 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-
-
 --------------------------------------------------
 
 HOW TO CREATE A PDF DOCUMENT IN REACT
 
-Run this command first:
+Run this command first in your terminal:
 
 npm install @react-pdf/renderer --save
 
-
---------------------------------------------------
-
-
+---------------------------------------------
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { PDFViewer } from '@react-pdf/renderer';
@@ -87,35 +84,47 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 -------------------
 
+MUI is a simple and customizable component library to build faster, beautiful, and more accessible React applications
+
+npm install @mui/material @emotion/react @emotion/styled
+--------------------------------------
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
+
+function App() {
+  return ( <Button variant="contained">Hello World</Button>;
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+
+-------------------
+
+HOW TO CREATE RICH-TEXT- EDITOR
+
+A fully featured React components library
+https://mantine.dev/
+
+npm install @mantine/rte @mantine/core @mantine/hooks
+
+import { useState } from 'react';
+import { RichTextEditor } from '@mantine/rte';
+import ReactDOM from 'react-dom';
+
+const initialValue =
+  '<p>Welcome to<b> ClayDesk</b> and I hope you are enjoying this course</p>';
+
+function Demo() {
+  const [value, onChange] = useState(initialValue);
+  return <RichTextEditor value={value} onChange={onChange} />;
+}
+
+ReactDOM.render( 
+  <Demo />,
+  document.getElementById('root')
+);
+---------------------
 Hope this helps.
 Thank you!
-Team ClayDesk
+Team ClayDesk 
 Syed
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
